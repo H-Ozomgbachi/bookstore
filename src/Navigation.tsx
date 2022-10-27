@@ -5,6 +5,7 @@ import BookListScreen from './screens/BookListScreen';
 import Header from './components/Header';
 import BookDetailScreen from './screens/BookDetailScreen';
 import {ROUTES} from './utils/routes';
+import SearchScreen from './screens/SearchScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,13 +17,19 @@ export default function Navigation() {
           name={ROUTES.BookList}
           component={BookListScreen}
           options={{
-            header: Header,
+            // header: Header,
+            headerShown: false,
           }}
         />
         <Stack.Screen
           name={ROUTES.BookDetail}
           component={BookDetailScreen}
-          //   options={{headerShown: false}}
+          options={{headerShown: true}}
+        />
+        <Stack.Screen
+          name={ROUTES.Search}
+          component={SearchScreen}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>

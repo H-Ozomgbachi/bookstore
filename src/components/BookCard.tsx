@@ -22,11 +22,16 @@ export default function BookCard({book}: Props) {
   );
 
   return (
-    <TouchableOpacity style={styles.container} onPress={onDetail}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={onDetail}
+      accessibilityLabel="book">
       <Image source={{uri: book.imgUrl}} style={styles.img} />
       <View style={styles.name}>
         <Text style={styles.title}>{book.title}</Text>
-        <Text style={styles.subtitle}>{book.subtitle}</Text>
+        <Text style={styles.subtitle}>
+          {book.subtitle ?? 'A catchy subtitle'}
+        </Text>
         <Text style={styles.author}> Author: {book.author}</Text>
       </View>
     </TouchableOpacity>
